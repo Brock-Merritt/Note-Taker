@@ -1,6 +1,14 @@
-[
+{
+  "notesArray": [
     {
-        "title":"Test Title",
-        "text":"Test text"
+      "title": "Test Title",
+      "text": "Test text"
+    },
+    {
+      "title":"test 2",
+      "text":"test 2"
     }
-]
+    
+      
+  ]
+}

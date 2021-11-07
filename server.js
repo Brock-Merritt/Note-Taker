@@ -1,14 +1,19 @@
-const { application } = require('express');
 const express = require('express');
 
+const PORT = process.env.PORT || 3001;
 
-//zookeeper as a rubric
+const app = express();
+const apiRoutes = require('./routes/apiRoutes');
+const htmlRoutes = require('./routes/htmlRoutes');
+
+
+
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 app.use(express.static('public'));
 
-//apiRoutes from zookeeper
-app.use('where is /api technically?', apiRoutes);
+//apiRoutes
+app.use('/api', apiRoutes);
 app.use('/', htmlRoutes);
 
 
@@ -17,10 +22,3 @@ app.listen(PORT, () => {
 });
 
 
-// app.get('/', (req, res) =>{
-//     res.sendFile(path.join(__dirname, './public/index.html'));
-// });
-
-// app.get('/animals', (req,res) => {
-//     res.sendFile(path.join(__dirname, './public/animals.html'));
-// });
