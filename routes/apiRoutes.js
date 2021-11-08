@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const path = require('path');
-const notes = require('../db/db.json')
+const notes  = require('../db/db.json')
 const fs = require('fs');
 
 function createNewNote(body,notesArray){
@@ -19,8 +19,9 @@ router.get('/notes', (req, res) => {
     // //     results = filterByQuery(req.query, results);
     // //   }
     res.json(results);
-    console.log(`router works`);
-})
+    console.log(`${results}`);
+    
+});
 
 router.post('/notes', (req, res) => {
     req.body.id = notes.length.toString();
@@ -28,7 +29,7 @@ router.post('/notes', (req, res) => {
     if(req.body){
         const note = createNewNote(req.body, notes);
         res.json(note);
-    }
+    };
 
     console.log(`post is logged`);
 
