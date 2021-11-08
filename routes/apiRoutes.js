@@ -19,12 +19,14 @@ router.get('/notes', (req, res) => {
     // //     results = filterByQuery(req.query, results);
     // //   }
     res.json(results);
-    console.log(`${results}`);
+    console.log(`${notes}`);
     
 });
 
 router.post('/notes', (req, res) => {
-    req.body.id = notes.length.toString();
+    let notes = req.body;
+    console.log(notes)
+    req.body = notes.toString();
     
     if(req.body){
         const note = createNewNote(req.body, notes);
@@ -36,9 +38,9 @@ router.post('/notes', (req, res) => {
 });
 
 
-router.delete('/notes/:id', (req, res) => {
-    const result = findById(req.params.id, notes);
+// router.delete('/notes/:id', (req, res) => {
+//     const result = findById(req.params.id, notes);
     
-});
+// });
 
 module.exports = router;
